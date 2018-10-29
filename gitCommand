@@ -15,3 +15,17 @@ add hello, we want to know if git diff work
 ->git diff shows the difference
 
 Attention, you change your file but if not add or commit on git, then they are not change in there.
+
+You can review all the version you have commit, let's have a try with git log.
+
+->git log: show all the version from most currently to most far away. Press q for done.
+
+The current is HEAD, and the one before last one is HEAD^, HEAD^^. with git reset HEAD^.
+
+->git reset --hard HEAD^             //the file will change to the previous one
+
+How ever, if you want to change back the most recently one, you can do like this:
+
+->git rest --hard 597914ec
+
+->cat gitCommand                    //show the content in the file
