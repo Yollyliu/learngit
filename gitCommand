@@ -4,11 +4,14 @@ Git:
 pwd: show the location
 
 
-git add readme.txt
-git commit -m "add readme"
+-> git commit -m "add readme"
 
-you can add three txt and just one commit
+-> you can add three txt and just one commit
 
 -> we add this sentence and use $ git status to check what happen
 
-hello, we want to know if git diff work
+add hello, we want to know if git diff work
+
+->git diff shows the difference
+
+Attention, you change your file but if not add or commit on git, then they are not change in there.
