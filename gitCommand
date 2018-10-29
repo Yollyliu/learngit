@@ -28,4 +28,24 @@ How ever, if you want to change back the most recently one, you can do like this
 
 ->git rest --hard 597914ec
 
-->cat gitCommand                    //show the content in the file
+597914ec is a ID of version. You can get through 
+
+->git reflog
+
+->cat filename                  //show the content of the file
+
+Hi, I am planning to learn more. It is a tough time, but I can survive.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
