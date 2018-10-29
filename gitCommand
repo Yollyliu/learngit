@@ -1,0 +1,13 @@
+Code share: Git, CVS, SVN, ClearCase, VSS(Visual Studio)
+
+Git:
+pwd: show the location
+
+
+git add readme.txt
+git commit -m "add readme"
+
+you can add three txt and just one commit
+
+-> we add this sentence and use $ git status to check what happen
+
