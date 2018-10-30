@@ -6,11 +6,13 @@ pwd: show the location
 
 -> git commit -m "add readme"
 
--> you can add three txt and just one commit
+you can add three txt and just one commit
 
 -> we add this sentence and use $ git status to check what happen
 
 add hello, we want to know if git diff work
+
+
 
 ->git diff shows the difference
 
@@ -18,24 +20,89 @@ Attention, you change your file but if not add or commit on git, then they are n
 
 You can review all the version you have commit, let's have a try with git log.
 
-->git log: show all the version from most currently to most far away. Press q for done.
+
+
+->git log: 
+
+show all the version from most currently to most far away. Press q for done.
 
 The current is HEAD, and the one before last one is HEAD^, HEAD^^. with git reset HEAD^.
 
-->git reset --hard HEAD^             //the file will change to the previous one
 
-How ever, if you want to change back the most recently one, you can do like this:
+
+
+->git reset --hard HEAD^             
+
+the file will change to the previous one
 
 ->git rest --hard 597914ec
 
-597914ec is a ID of version. You can get through 
+How ever, if you want to change back the most recently one, you can do like this:
+
+
+
 
 ->git reflog
 
-->cat filename                  //show the content of the file
+597914ec is a ID of version. You can get all ID of your have changed
 
+
+->cat filename                  
+show the content of the file
+
+
+
+test:
 Hi, I am planning to learn more. It is a tough time, but I can survive.
 
+Hi, the stupid boring man always yarn at the dog.
+
+
+Two step to cancel a change that you add to git:
+
+->git reset HEAD filename
+
+reset the HEAD filename. 
+
+->git checkout -- filename
+
+Clear the work space of this file. However, this is not work on my terminal.
+
+
+
+delete:
+
+-> rm filename         
+
+Just remove in workspace, but not in buffer, and you can use : git status to check
+
+->git status
+
+it will show you that file is deleted. There are two choice: deleted and recover
+
+-> git rm filename    ->git commit -m "delete"
+
+-> git checkout -- filename
+
+The second command line is recover.
+
+
+
+
+local load to remote Github
+
+-> cd ~/.ssh
+check if you have .ssh, if don't have, you need to generate one
+
+->ssh-keygen -t rsa -C XXXx@gmail.com
+generate ssh 
+
+-> git remote add Name git@github.com:Yollyliu/learngit.git
+-> git push -u Name master
+then you can get the file on your Github
+
+->$ git push Name master
+Everytime you are put your file to Github
 
 
 
