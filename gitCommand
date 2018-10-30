@@ -105,6 +105,17 @@ then you can get the file on your Github
 Everytime you are put your file to Github
 
 
+From remote Github to local:
+
+first build a new repostory, 
+
+->$ git clone git@github.com:michaelliao/Name.git
+
+However, I tried a existed local file and existed repostory in Github, it seems not work.
+
+
+
+
 
 
 
