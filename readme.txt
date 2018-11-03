@@ -7,4 +7,5 @@
 
 \f0\fs24 \cf0 Git is a version control system.\
 Git is free software.\
-You should believe in yourself.}
+You should believe in yourself.
+Creating a new branch is quick.
