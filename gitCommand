@@ -105,6 +105,8 @@ then you can get the file on your Github
 Everytime you are put your file to Github
 
 
+
+
 From remote Github to local:
 
 first build a new repostory, 
@@ -117,6 +119,42 @@ However, I tried a existed local file and existed repostory in Github, it seems 
 
 
 
+Build new divide:
+
+$git checkout -b dev
+
+build a new branch dev
+
+$git branch
+
+it will list all branches, and the current branch marked as "*".
+
+-vim readme.txt   // entry readme 
+-i   //insert readme.txt
+esc + :wq   //store and quit
+
+switch back to master branch:
+
+$git checkout master
+
+when switch back to master, and open readme.txt, find it was not changed.
+
+$ git merge dev
+
+merge dev with master, what change in dev will be reflect on master.(fast forward)
+
+Attention: before you merge, you should add and commit what readme.txt have modified.
+
+
+If there is a merge conflict, you should 1. $git status to see the modified file,
+2. open the txt, and change " <<<HEAD ======= >>>>>>>New branck name " to the content you want, then add and commit
+
+
+
+1. If you meet problem when "git push Name master", then it must be changed "readme.txt" or "license". Three steps :
+1. git remote add origin
+2. git pull origin master
+3. git push origin master
 
 
 
