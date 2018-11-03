@@ -160,7 +160,13 @@ Then delete dev:
 
 &git branch -d dev
 
+$git merge --no-ff -m "merge with no-ff" dev
+Another way for merge is :  --no-ff , which is forbidden fast forward.  If you use fast forward,
+when you delete branch, information on that branch will also discard.
 
+
+
+There is a problem, the passage above cannot be shown on Github, even though I check it several time in my local gitCommand. Cannot find reason, so I add this passage, planning to commit and then push to Github to check if it works.
 
 
 
