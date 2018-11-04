@@ -170,6 +170,52 @@ There is a problem, the passage above cannot be shown on Github, even though I c
 
 
 
+If you open a dev and have not finish,,and same time, you need debug. Then:
+
+$git stash            // store the current place
+
+Saved working directory and index state WIP on dev: f52c633 add merge.
+
+
+After this, you can build new branch to fix bug. If you want to fix master bug,
+then build a new branch in master.
+
+$git checkout master
+
+$git checkout -b issue-101
+
+//build a new branch in master, and debug
+
+$git checkout master
+
+$git merge --n0-ff -m "merge bug 101" issue-101
+
+$git branch -d issue-101   //delete issue-101 branch
+
+switch to dev and work on:
+
+$git checkout dev
+
+$git status
+find nothing in the workplace, and we should list it out
+
+$git stash list
+It will show the workplace, however, it need recover, there are two ways to finish it:
+
+$git stash apply stash{0}
+// it will show the workplace, but not delete it, you will use drop to delete it. You can use it
+if there are many version.
+$git stash drop
+
+
+$git stash pop 
+//it will show the workplace, and at the same time, delete it.
+
+Conclusion: if you haven't done your work, and need bug, first use git stash to store, and when finish the bug, use git stash pop/git stash apply to return the workplace.
+
+
+
+
 
 
 If you open a dev and have not finish,,and same time, you need debug. Then:
