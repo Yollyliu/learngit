@@ -172,4 +172,18 @@ There is a problem, the passage above cannot be shown on Github, even though I c
 
 
 
+If you open a dev and have not finish,,and same time, you need debug. Then:
 
+$git stash            // store the current place
+
+Saved working directory and index state WIP on dev: f52c633 add merge.
+
+
+After this, you can build new branch to fix bug. If you want to fix master bug, then build a new
+branch in master.
+
+$git checkout master
+
+$git checkout -b issue-101
+
+//build a new branch in master, and debug
