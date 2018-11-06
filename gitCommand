@@ -104,6 +104,8 @@ then you can get the file on your Github
 ->$ git push Name master
 Everytime you are put your file to Github
 
+->$ git push
+
 
 
 
@@ -170,52 +172,6 @@ There is a problem, the passage above cannot be shown on Github, even though I c
 
 
 
-If you open a dev and have not finish,,and same time, you need debug. Then:
-
-$git stash            // store the current place
-
-Saved working directory and index state WIP on dev: f52c633 add merge.
-
-
-After this, you can build new branch to fix bug. If you want to fix master bug,
-then build a new branch in master.
-
-$git checkout master
-
-$git checkout -b issue-101
-
-//build a new branch in master, and debug
-
-$git checkout master
-
-$git merge --n0-ff -m "merge bug 101" issue-101
-
-$git branch -d issue-101   //delete issue-101 branch
-
-switch to dev and work on:
-
-$git checkout dev
-
-$git status
-find nothing in the workplace, and we should list it out
-
-$git stash list
-It will show the workplace, however, it need recover, there are two ways to finish it:
-
-$git stash apply stash{0}
-// it will show the workplace, but not delete it, you will use drop to delete it. You can use it
-if there are many version.
-$git stash drop
-
-
-$git stash pop 
-//it will show the workplace, and at the same time, delete it.
-
-Conclusion: if you haven't done your work, and need bug, first use git stash to store, and when finish the bug, use git stash pop/git stash apply to return the workplace.
-
-
-
-
 
 
 If you open a dev and have not finish,,and same time, you need debug. Then:
@@ -232,4 +188,149 @@ $git checkout master
 
 $git checkout -b issue-101
 
-//build a new branch in master, and debug
+//build a new branch in master, and debug,
+
+
+However, if you build a new branch, then you want to delete is and donot merge, you should do like this:
+
+$git branch -D <name> 
+delete all the branch which never merge
+
+
+$ git clone git@github.com:michaelliao/learngit.git
+clone a branch to local, but only the "master" branch to local. If he want to "dev" branch, then should do:
+
+
+$ git checkout -b dev origin/dev
+// pull remote dev to local dev
+
+
+$ git push Name dev
+//push local dev to remote dev
+
+
+However, at the same time, you are pushing, there is a conflict. Doing follow:
+1. pull the submitted dev download; 2. change
+
+$ git branch --set-upstream-to=origin/dev dev
+$ git pull
+
+
+首先，可以试图用git push origin <branch-name>推送自己的修改；
+
+如果推送失败，则因为远程分支比你的本地更新，需要先用git pull试图合并；
+
+如果合并有冲突，则解决冲突，并在本地提交；
+
+没有冲突或者解决掉冲突后，再用git push origin <branch-name>推送就能成功！
+
+如果git pull提示no tracking information，则说明本地分支和远程分支的链接关系没有创建，用命令git branch --set-upstream-to <branch-name> origin/<branch-name>。
+
+
+Conclusion:
+
+查看远程库信息，使用git remote -v；
+
+本地新建的分支如果不推送到远程，对其他人就是不可见的；
+
+从本地推送分支，使用git push origin branch-name，如果推送失败，先用git pull抓取远程的新提交；
+
+在本地创建和远程分支对应的分支，使用git checkout -b branch-name origin/branch-name，本地和远程分支的名称最好一致；
+
+建立本地分支和远程分支的关联，使用git branch --set-upstream branch-name origin/branch-name；
+
+从远程抓取分支，使用git pull，如果有冲突，要先处理冲突。
+
+
+$git rebase
+
+
+
+
+
+$git tag v1.2
+ 
+tag current branch as v1.2. 
+
+
+$git tag
+
+shows all tags
+
+The best time to tag is the time when commiting. However, if you want to tag Monday's file but today is Friday. Then:
+
+$git log --pretty=oneline --abbrev-commit
+
+get the following:
+
+c40e630 (HEAD -> master, tag: v1.0, two/master) final issue 101
+866e37e (dev) issue
+d223ee0 bug issue-01
+cc9f277 solve the above passage disappear problem
+981bf3f merge with no-ff
+26b75bc (two/dev) no-ff
+17ddc99 Nov2. learning
+e5d06b1 Merge branch 'master' of github.com:Yollyliu/learngit
+d16b24d test new branch problem
+783964a new branck test
+ec103d4 branch test
+10d3207 Update readme.rtf
+f9469dd try for both exist
+85bdb23 delete java200
+812ce1a push local to remote
+61f7c87 remove test
+f7279a9 add test
+cb24b0c remove test
+7786120 add test
+6f6d635 one
+a7ca754 plan
+1aaf59f change version and reload previous version
+14abe0e explain diff
+
+
+$ git tag v0.9 85bdb23
+
+tag v0.9 as the time when delete java200.
+
+$git show v0.9
+
+show detail information of v0.9
+
+$ git tag -a v0.1 -m "version 0.1 released" 783964a
+
+-a: specify name, -m: specify information
+
+
+$git tag -d v0.1
+
+delete tag use -d, as tag same as add, so if you tag wrong, it not automatic push to remote.
+
+$git push origin tagName
+
+push local tagName to remote.
+
+$git push origin --tags
+
+push all local tagName to remote.
+
+If you push a wrong tag to remote, wanting to delete it. Follow:
+
+$git tag -d tagName
+
+delete the tag in local.
+
+$ git push origin :refs/tags/tagName
+
+
+
+
+
+
+
+
+
+
+
+
+
+
